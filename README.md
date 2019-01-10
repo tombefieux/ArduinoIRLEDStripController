@@ -1,6 +1,6 @@
 # Arduino IR LED Strip Controller
 
-This Arduino project permits to control LED strips with the RC5 infrared protocol.
+This Arduino project permits to control LED strips with an infrared protocol.
 CAUTION: This controller is only a receiver. If you want to use it you must respect its protocol explained below.
 I've made this project to be linked with a raspberry pi 3 that commands it; I will upload the code soon.
 
@@ -17,19 +17,20 @@ Of course you can change the pin numbers at the beginning of the code.
 ## What you need to know
 Each controller has an id variable, so you can control several LED strips with several Arduinos.
 
-### Send what ?
-The RC5 protocol have frames of 14 bits. To change the color, this controller needs to receive 6 frames:
+### What must you send?
+I based me on the RC5 protocol to send data. It has frames of 14 bits. To change the color, this controller needs to receive 6 frames:
 * One frame for each color value. Red first, green after and blue at the end
 * Each frame must be sent twice to check errors
 
-### The strucuture of a frame
+### The structure of a frame
 Each frame needs to contain the controller destination ID of 4 bits (so there's 15 possible destinations) and a value of 8 bits. Here is the structure of a frame:
 ```
-2 usless bits | destination | value = 14 bits
+2 useless bits | destination | value = 14 bits
 ```
+Here we have two useless bits to use the RC5 decoder library.
 
 ### Example
-Here we'll send the RGB color (254, 126, 187) to the controller of destination ID number 0.
+Here we send the RGB color (254, 126, 187) to the controller of destination ID number 0.
 ```
 254 in binary: 11111110
 126 in binary: 01111110
