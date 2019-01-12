@@ -2,7 +2,7 @@
 
 This Arduino project allow users to control LED strips with an infrared protocol.
 CAUTION: This controller is only a receptor. If you want to use it you must respect its protocol explained below.
-This project is supposed to be linked to a raspberry pi 3 which should command it; I will upload the code soon.
+This project is supposed to be linked to a Raspberry pi 3 which should command it. The Raspberry pi code is [here](https://github.com/tombefieux/IRLEDStrip-Transmitter).
 
 ## Getting Started
 ### Prerequisites
